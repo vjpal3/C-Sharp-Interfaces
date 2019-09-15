@@ -9,7 +9,7 @@ namespace Interfaces.Testabilty
     public class Order
     {
         public bool IsShipped { get; set; }
-        public Shipment shipment{ get; set; }
+        public Shipment Shipment{ get; set; }
         public DateTime DatePlaced { get; set; }
 
         public float TotalPrice { get; set; }

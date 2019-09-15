@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interfaces.Testabilty
 {
-    class OrderProcessor
+    public class OrderProcessor
     {
         private IShippingCalculator shippingCalculator;
 
@@ -21,7 +21,7 @@ namespace Interfaces.Testabilty
             {
                 throw new InvalidOperationException();
             }
-            order.shipment = new Shipment
+            order.Shipment = new Shipment
             {
                 Cost = shippingCalculator.CalculateShippng(order),
                 ShippingDate = DateTime.Now.AddDays(1)
