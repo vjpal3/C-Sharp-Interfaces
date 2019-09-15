@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Interfaces.Testabilty;
+using Interfaces.Extensibility;
 
 namespace Interfaces
 {
@@ -11,9 +12,22 @@ namespace Interfaces
     {
         static void Main(string[] args)
         {
-            var orderProcessor = new OrderProcessor(new ShippingCalculator());
-            var order = new Order { DatePlaced = DateTime.Now, TotalPrice = 100f };
-            orderProcessor.Process(order);
+            //Run code for Extensibility
+            var dbMigrator = new DbMigrator(new ConsoleLogger());
+            dbMigrator.Migrate();
+
+            Console.ForegroundColor = ConsoleColor.White;
+
+            // The behaviour of the app is changed by extending the app, 
+            // instead of changing the existing code. (OCP)
+            // Here the extension point is, use of an interface 
+            var dbMigratorFileLogging = new DbMigrator(new FileLogger("e:\\log.txt"));
+            dbMigratorFileLogging.Migrate();
+            
+            //Run code for Testability
+            //var orderProcessor = new OrderProcessor(new ShippingCalculator());
+            //var order = new Order { DatePlaced = DateTime.Now, TotalPrice = 100f };
+            //orderProcessor.Process(order);
         }
     }
 }
