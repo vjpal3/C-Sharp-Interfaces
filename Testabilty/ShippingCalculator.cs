@@ -14,7 +14,6 @@ namespace Interfaces.Testabilty
     {
         public float CalculateShippng(Order order)
         {
-            //throw new NotImplementedException();
             if (order.TotalPrice < 30f)
                 return order.TotalPrice * 0.1f;
             

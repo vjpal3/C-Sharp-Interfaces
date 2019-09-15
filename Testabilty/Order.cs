@@ -10,6 +10,7 @@ namespace Interfaces.Testabilty
     {
         public bool IsShipped { get; set; }
         public Shipment shipment{ get; set; }
+        public DateTime DatePlaced { get; set; }
 
         public float TotalPrice { get; set; }
     }
