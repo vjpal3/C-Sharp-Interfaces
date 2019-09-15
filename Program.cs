@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Interfaces.Testabilty;
 using Interfaces.Extensibility;
+using Interfaces.Polymorphism;
 
 namespace Interfaces
 {
@@ -12,11 +13,18 @@ namespace Interfaces
     {
         static void Main(string[] args)
         {
-            //Run code for Extensibility
-            var dbMigrator = new DbMigrator(new ConsoleLogger());
-            dbMigrator.Migrate();
+            // Run code for Interface Polymorphism
+            var encoder = new VideoEncoder();
+            //Polymorphic dispatch
+            encoder.RegisterNotificationChannel(new MailNotificationChannel());
+            encoder.RegisterNotificationChannel(new SMSNotificationChannel());
+            encoder.Encode(new Video());
 
-            Console.ForegroundColor = ConsoleColor.White;
+            //Run code for Extensibility
+            //var dbMigrator = new DbMigrator(new ConsoleLogger());
+            //dbMigrator.Migrate();
+
+            //Console.ForegroundColor = ConsoleColor.White;
 
             // The behaviour of the app is changed by extending the app, 
             // instead of changing the existing code. (OCP)
