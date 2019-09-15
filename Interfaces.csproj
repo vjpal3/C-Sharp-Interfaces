@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Testabilty\Order.cs" />
+    <Compile Include="Testabilty\OrderProcessor.cs" />
+    <Compile Include="Testabilty\Shipment.cs" />
+    <Compile Include="Testabilty\ShippingCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
